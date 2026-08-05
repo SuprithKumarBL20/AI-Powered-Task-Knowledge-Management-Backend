@@ -2,7 +2,11 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.routers import auth, tasks, documents, search, analytics
+from app.config import DATABASE_URL
 
+@app.get("/debug-db")
+def debug_db():
+    return {"database_url": DATABASE_URL}
 app = FastAPI(
     title="AI-Powered Task & Knowledge Management System API",
     description="Backend API for managing tasks, documents, semantic searches, and analytics.",
