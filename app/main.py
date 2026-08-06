@@ -2,7 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.routers import auth, tasks, documents, search, analytics
-from app.config import DATABASE_URL, DB_USER, DB_HOST, DB_PORT, DB_NAME
+from app.config import DATABASE_URL
+
 
 app = FastAPI(
     title="AI-Powered Task & Knowledge Management System API",
@@ -43,12 +44,9 @@ def read_root():
     }
 
 
+
 @app.get("/debug-db")
 def debug_db():
     return {
-        "DB_USER": DB_USER,
-        "DB_HOST": DB_HOST,
-        "DB_PORT": DB_PORT,
-        "DB_NAME": DB_NAME,
         "DATABASE_URL": DATABASE_URL
     }
