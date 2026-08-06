@@ -13,6 +13,13 @@ app = FastAPI(
     version="1.0.0"
 )
 
+from app.config import DATABASE_URL
+
+@app.get("/debug-db")
+def debug_db():
+    return {
+        "database_url": DATABASE_URL
+    }
 # CORS Configuration
 # Allow all origins for development, but in production this should be restricted
 app.add_middleware(
