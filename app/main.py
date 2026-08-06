@@ -15,7 +15,7 @@ app = FastAPI(
 # Allowed Origins
 origins = [
     "http://localhost:5173",
-    # "https://your-frontend.vercel.app",
+    "https://ai-taskmanagement.vercel.app",
 ]
 
 # CORS Configuration
